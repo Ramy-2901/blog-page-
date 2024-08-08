@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+    {% if form.errors %}
+        <p style="color:red;">{{ form.errors }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('login') }}">
+        {{ form.csrf_token }}
+        <label>Email:</label>
+        {{ form.email.label }} {{ form.email(size=20) }}<br><br>
+        <label>Password:</label>
+        {{ form.password.label }} {{ form.password(size=20) }}<br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
